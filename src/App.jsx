@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Routes from "./Routes";
+import NavBar from "./NavBar";
 
+import whiskey from "./assets/whiskey.jpg";
+import tubby from "./assets/tubby.jpg";
+import duke from "./assets/duke.jpg";
+import perry from "./assets/perry.jpg";
+
+
+function App({dogs}) {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <BrowserRouter>
+        <NavBar dogs={dogs} />
+        <div className="container">
+          <Routes dogs={dogs} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export const dogs = [
+  {
+    name: "Whiskey",
+    age: 5,
+    src: whiskey,
+    facts: [
+      "Whiskey loves eating popcorn.",
+      "Whiskey is a terrible guard dog.",
+      "Whiskey wants to cuddle with you!"
+    ]
+  },
+  {
+    name: "Duke",
+    age: 3,
+    src: duke,
+    facts: [
+      "Duke believes that ball is life.",
+      "Duke likes snow.",
+      "Duke enjoys pawing other dogs."
+    ]
+  },
+  {
+    name: "Perry",
+    age: 4,
+    src: perry,
+    facts: [
+      "Perry loves all humans.",
+      "Perry demolishes all snacks.",
+      "Perry hates the rain."
+    ]
+  },
+  {
+    name: "Tubby",
+    age: 4,
+    src: tubby,
+    facts: [
+      "Tubby is really stupid.",
+      "Tubby does not like walks.",
+      "Angelina used to hate Tubby, but claims not to anymore."
+    ]
+  }
+];
+
+App.defaultProps = { dogs };
+
+export default App;

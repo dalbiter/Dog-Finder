@@ -1,10 +1,9 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
-import "./DogDetails.css";
+import { Link, Navigate } from "react-router-dom";
 
 function DogDetails({dog}) {
 
-  if (!dog) return <Redirect to="/dogs"/>
+  if (!dog) return <Navigate to="/dogs"/>
 
   return (
     <div className="row DogDetails">

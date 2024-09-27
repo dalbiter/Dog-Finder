@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Routes from "./Routes";
+import DogRoutes from "./DogRoutes";
 import NavBar from "./NavBar";
 
 import whiskey from "./assets/whiskey.jpg";
@@ -16,7 +16,7 @@ function App({dogs}) {
       <BrowserRouter>
         <NavBar dogs={dogs} />
         <div className="container">
-          <Routes dogs={dogs} />
+          <DogRoutes dogs={dogs} />
         </div>
       </BrowserRouter>
     </div>
